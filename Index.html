@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletiva: Gama Na Música</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        /* Background Animation */
+        .bg-animated {
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #111827);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Transitions */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        .slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Custom Scrollbar for modals */
+        .custom-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col">
+
+    <!-- Background -->
+    <div class="bg-animated"></div>
+
+    <!-- Main Container -->
+    <main class="flex-grow flex flex-col items-center justify-center w-full px-4 relative">
+        
+        <!-- INTRO SLIDES SECTION -->
+        <div id="intro-section" class="w-full max-w-4xl mx-auto text-center relative min-h-[60vh] flex flex-col justify-center items-center">
+            
+            <!-- Slide 1: Title -->
+            <div id="slide-0" class="slide-content w-full">
+                <div class="mb-6">
+                    <i class="fas fa-music text-6xl md:text-8xl text-purple-400 animate-bounce"></i>
+                </div>
+                <h2 class="text-xl text-emerald-400 font-semibold tracking-widest uppercase mb-2 fade-in">Eletiva</h2>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 mb-8 slide-up">
+                    Gama Na Música
+                </h1>
+                <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto slide-up" style="animation-delay: 0.2s">
+                    Explorando a conexão entre Ciências e Geografia.
+                </p>
+                <button onclick="nextSlide()" class="group relative px-8 py-3 bg-white text-slate-900 font-bold rounded-full shadow-lg hover:bg-purple-50 transition-all transform hover:scale-105 slide-up" style="animation-delay: 0.4s">
+                    próximo
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+
+            <!-- Slide 2: Justificativa & Ementa -->
+            <div id="slide-1" class="slide-content w-full hidden text-left">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Justificativa -->
+                    <div class="glass p-8 rounded-2xl slide-up">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 bg-emerald-500/20 rounded-lg mr-4">
+                                <i class="fas fa-seedling text-emerald-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Justificativa</h3>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed text-sm md:text-base text-justify">
+                            A criação desta disciplina eletiva se justifica pela oportunidade de conectar o currículo de ciências biológicas e geografia com a expressão artística da música. A disponibilidade de instrumentos musicais na escola é um recurso valioso que será utilizado de forma prática e criativa, permitindo que os estudantes experimentem a criação sonora. Esta abordagem interdisciplinar não apenas enriquece o aprendizado, mas também estimula a criatividade, o pensamento crítico e a apreciação da arte e da ciência como campos interligados.
+                        </p>
+                    </div>
+
+                    <!-- Ementa -->
+                    <div class="glass p-8 rounded-2xl slide-up" style="animation-delay: 0.2s">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 bg-amber-500/20 rounded-lg mr-4">
+                                <i class="fas fa-globe-americas text-amber-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Ementa</h3>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed text-sm md:text-base text-justify">
+                            Esta disciplina explora a conexão entre a música e o mundo natural. Investigaremos como as paisagens sonoras de diferentes biomas, como florestas e desertos, inspiram a criação musical. Além disso, analisamos como a geografia e a biologia, influencia a diversidade de estilos musicais em diferentes culturas ao longo do tempo.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-8 text-center slide-up" style="animation-delay: 0.4s">
+                    <button onclick="nextSlide()" class="group px-8 py-3 border border-white/30 hover:bg-white/10 text-white font-semibold rounded-full transition-all">
+                        Conhecer as Professoras <i class="fas fa-chevron-right ml-2 group-hover:translate-x-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slide 3: Professoras -->
+            <div id="slide-2" class="slide-content w-full hidden">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center slide-up">Professoras Responsáveis</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-8 mb-12">
+                    
+                    <!-- Card Lia -->
+                    <div class="glass p-8 rounded-2xl w-full md:w-1/3 flex flex-col items-center slide-up hover:border-emerald-500/50 transition-colors">
+                        <div class="w-24 h-24 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-full flex items-center justify-center mb-4 shadow-lg text-3xl font-bold text-white">
+                            L
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">Lia Flávia</h3>
+                        <div class="h-1 w-12 bg-emerald-500 rounded mb-3"></div>
+                        <p class="text-emerald-300 font-medium">Biologia e Ciência</p>
+                        <p class="text-gray-400 text-sm mt-2 text-center">Explorando a vida através do som.</p>
+                    </div>
+
+                    <!-- Card Priscila -->
+                    <div class="glass p-8 rounded-2xl w-full md:w-1/3 flex flex-col items-center slide-up hover:border-amber-500/50 transition-colors" style="animation-delay: 0.2s">
+                        <div class="w-24 h-24 bg-gradient-to-br from-amber-400 to-orange-600 rounded-full flex items-center justify-center mb-4 shadow-lg text-3xl font-bold text-white">
+                            P
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">Priscila</h3>
+                        <div class="h-1 w-12 bg-amber-500 rounded mb-3"></div>
+                        <p class="text-amber-300 font-medium">Geografia</p>
+                        <p class="text-gray-400 text-sm mt-2 text-center">Mapeando culturas e ritmos.</p>
+                    </div>
+
+                </div>
+                <div class="text-center slide-up" style="animation-delay: 0.4s">
+                    <button onclick="goToMainMenu()" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-full shadow-lg hover:shadow-purple-500/30 transition-all transform hover:scale-105">
+                        Explorar Estilos Musicais <i class="fas fa-music ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div id="pagination-dots" class="absolute -bottom-16 left-0 right-0 flex justify-center space-x-3">
+                <button class="w-3 h-3 rounded-full bg-white transition-all duration-300 scale-125" id="dot-0"></button>
+                <button class="w-3 h-3 rounded-full bg-white/30 transition-all duration-300" id="dot-1"></button>
+                <button class="w-3 h-3 rounded-full bg-white/30 transition-all duration-300" id="dot-2"></button>
+            </div>
+        </div>
+
+        <!-- MENU PRINCIPAL (GRID DE ESTILOS) -->
+        <div id="main-menu" class="hidden w-full max-w-6xl mx-auto py-8 slide-up">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-2">Universo Musical</h2>
+                <p class="text-gray-400">Clique em um estilo para descobrir sua história e impacto.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Cards serão gerados via JS -->
+            </div>
+            
+            <div class="mt-8 text-center">
+                 <button onclick="window.location.href='trabalhos.html'" class="text-sm text-gray-500 hover:text-white transition-colors underline">
+                    <i class="fas fa-users mr-1"></i> conheça nosso trabalho
+                 </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- MODAL DE DETALHES -->
+    <div id="detail-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+        <div class="bg-[#1e293b] w-full max-w-2xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="modal-content-box">
+            <!-- Header com cor dinâmica -->
+            <div id="modal-header" class="h-32 md:h-40 bg-gradient-to-r from-purple-600 to-indigo-600 p-6 flex items-end justify-between relative">
+                <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 bg-black/20 hover:bg-black/40 rounded-full text-white flex items-center justify-center transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div>
+                    <span id="modal-icon" class="text-4xl mb-2 block opacity-80"></span>
+                    <h2 id="modal-title" class="text-3xl md:text-4xl font-bold text-white"></h2>
+                </div>
+            </div>
+            
+            <!-- Conteúdo -->
+            <div class="p-6 md:p-8 max-h-[60vh] overflow-y-auto custom-scroll">
+                <div class="mb-6">
+                    <p id="modal-desc" class="text-gray-300 text-lg leading-relaxed"></p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800/50 p-4 rounded-xl border border-white/5">
+                        <h4 class="text-emerald-400 font-bold mb-2 text-sm uppercase tracking-wider"><i class="far fa-calendar-alt mr-2"></i>Origem & Época</h4>
+                        <p id="modal-origin" class="text-white"></p>
+                    </div>
+                    
+                    <div class="bg-slate-800/50 p-4 rounded-xl border border-white/5">
+                        <h4 class="text-amber-400 font-bold mb-2 text-sm uppercase tracking-wider"><i class="fas fa-users mr-2"></i>Artistas Notáveis</h4>
+                        <p id="modal-artists" class="text-white"></p>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-slate-800/50 p-4 rounded-xl border border-white/5">
+                     <h4 class="text-blue-400 font-bold mb-2 text-sm uppercase tracking-wider"><i class="fas fa-info-circle mr-2"></i>Curiosidade</h4>
+                     <p id="modal-fact" class="text-gray-300 italic"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+        // --- DADOS DOS ESTILOS MUSICAIS ---
+        const musicStyles = [
+            {
+                id: 'classica',
+                title: 'Música Clássica',
+                icon: 'fa-violin',
+                color: 'from-yellow-600 to-amber-800',
+                desc: 'A música erudita ocidental abrange um longo período, desde a Idade Média até os dias atuais. É conhecida por sua complexidade estrutural, notação precisa e uso de orquestras.',
+                origin: 'Europa, Séc. XI (raízes) até Séc. XIX (Romantismo).',
+                artists: 'Beethoven, Mozart, Bach, Chopin, Villa-Lobos.',
+                fact: 'O "Efeito Mozart" sugere que ouvir música clássica pode melhorar temporariamente o raciocínio espacial.'
+            },
+            {
+                id: 'afrobeat',
+                title: 'Afrobeat',
+                icon: 'fa-drum',
+                color: 'from-orange-500 to-red-700',
+                desc: 'Um gênero complexo que envolve a fusão de Jazz, Funk, Highlife e tradições vocais da África Ocidental. É música para dançar, mas também de forte protesto político.',
+                origin: 'Nigéria, década de 1960.',
+                artists: 'Fela Kuti, Tony Allen, Femi Kuti, Burna Boy.',
+                fact: 'Fela Kuti criou o estilo como uma forma de resistência cultural e crítica social na Nigéria pós-colonial.'
+            },
+            {
+                id: 'rap',
+                title: 'Rap & Hip Hop',
+                icon: 'fa-microphone-alt',
+                color: 'from-zinc-600 to-zinc-900',
+                desc: 'Elemento musical da cultura Hip Hop, caracterizado pela recitação rítmica de rimas e jogos de palavras sobre uma batida. É uma poderosa ferramenta de expressão urbana.',
+                origin: 'Bronx, Nova York (EUA), anos 1970.',
+                artists: 'Tupac, Notorious B.I.G, Racionais MC\'s, Kendrick Lamar.',
+                fact: 'O DJ Kool Herc é creditado por isolar os "breaks" das músicas de funk, criando a base para os MCs rimarem.'
+            },
+            {
+                id: 'latinos',
+                title: 'Ritmos Latinos',
+                icon: 'fa-guitar',
+                color: 'from-rose-500 to-pink-700',
+                desc: 'Um termo amplo que engloba ritmos da América Latina, misturando influências indígenas, europeias e africanas. Inclui Salsa, Merengue, Bachata e Reggaeton.',
+                origin: 'América Latina e Caribe.',
+                artists: 'Celia Cruz, Shakira, Luis Fonsi, Daddy Yankee.',
+                fact: 'A "clave" é um padrão rítmico fundamental de origem africana que serve como espinha dorsal para a maioria da música latina.'
+            },
+            {
+                id: 'samba',
+                title: 'Samba',
+                icon: 'fa-shoe-prints',
+                color: 'from-green-500 to-yellow-500',
+                desc: 'Gênero musical originário do Brasil, considerado uma das principais manifestações culturais do país. Nasceu da mistura de ritmos africanos com a cultura brasileira.',
+                origin: 'Bahia e Rio de Janeiro, início do séc. XX.',
+                artists: 'Cartola, Noel Rosa, Beth Carvalho, Zeca Pagodinho.',
+                fact: 'O samba foi reconhecido pela UNESCO em 2005 como Patrimônio Cultural Imaterial da Humanidade.'
+            },
+            {
+                id: 'reggae',
+                title: 'Reggae',
+                icon: 'fa-leaf',
+                color: 'from-green-600 to-yellow-600',
+                desc: 'Estilo musical desenvolvido na Jamaica. Caracteriza-se pelo ritmo acentuado no contratempo (o "skank") e letras que falam de amor, fé (Rastafari) e questões sociais.',
+                origin: 'Jamaica, final da década de 1960.',
+                artists: 'Bob Marley, Peter Tosh, Jimmy Cliff, Natiruts.',
+                fact: 'O ritmo do reggae é muitas vezes associado ao batimento cardíaco humano em repouso, promovendo relaxamento.'
+            },
+            {
+                id: 'rock',
+                title: 'Rock',
+                icon: 'fa-hand-rock',
+                color: 'from-red-600 to-purple-900',
+                desc: 'Gênero abrangente baseado em guitarras elétricas, baixo e bateria. Evoluiu do Rock and Roll dos anos 50 para inúmeros subgêneros como Punk, Metal e Indie.',
+                origin: 'EUA e Reino Unido, década de 1950.',
+                artists: 'Elvis Presley, The Beatles, Queen, Rita Lee.',
+                fact: 'A guitarra elétrica, ícone do rock, tornou-se popular porque permitia que o instrumento fosse ouvido acima do volume das baterias em grandes salões.'
+            },
+            {
+                id: 'kpop',
+                title: 'K-Pop',
+                icon: 'fa-star',
+                color: 'from-pink-400 to-purple-500',
+                desc: 'Música popular sul-coreana que mistura pop, hip hop e eletrônica. É conhecida por videoclipes visuais impressionantes, coreografias complexas e grupos de ídolos.',
+                origin: 'Coreia do Sul, década de 1990.',
+                artists: 'BTS, BLACKPINK, EXO, Psy.',
+                fact: 'O sistema de treinamento de ídolos do K-pop é rigoroso, onde artistas treinam canto e dança por anos antes de estrearem.'
+            }
+        ];
+
+        // --- ESTADO E LÓGICA ---
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        const introSection = document.getElementById('intro-section');
+        const mainMenu = document.getElementById('main-menu');
+        const paginationDots = document.getElementById('pagination-dots');
+        const modal = document.getElementById('detail-modal');
+        const modalContentBox = document.getElementById('modal-content-box');
+
+        function updateDots() {
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                if (i === currentSlide) {
+                    dot.classList.remove('bg-white/30', 'scale-100');
+                    dot.classList.add('bg-white', 'scale-150');
+                } else {
+                    dot.classList.add('bg-white/30', 'scale-100');
+                    dot.classList.remove('bg-white', 'scale-150');
+                }
+            }
+        }
+
+        function nextSlide() {
+            // Ocultar slide atual
+            document.getElementById(`slide-${currentSlide}`).classList.add('hidden');
+            
+            // Incrementar e mostrar próximo
+            currentSlide++;
+            
+            if (currentSlide < totalSlides) {
+                const nextEl = document.getElementById(`slide-${currentSlide}`);
+                nextEl.classList.remove('hidden');
+                
+                // Reiniciar animações para o novo slide
+                const animatedElements = nextEl.querySelectorAll('.slide-up');
+                animatedElements.forEach(el => {
+                    el.style.animation = 'none';
+                    el.offsetHeight; /* trigger reflow */
+                    el.style.animation = null; 
+                });
+
+                updateDots();
+            } else {
+                // Se passou do último slide, vai pro menu principal
+                goToMainMenu();
+            }
+        }
+
+        function goToMainMenu() {
+            introSection.classList.add('hidden');
+            mainMenu.classList.remove('hidden');
+            renderMenu();
+        }
+
+        function restart() {
+            currentSlide = 0;
+            mainMenu.classList.add('hidden');
+            introSection.classList.remove('hidden');
+            
+            // Resetar slides
+            for(let i=0; i<totalSlides; i++) {
+                document.getElementById(`slide-${i}`).classList.add('hidden');
+            }
+            document.getElementById('slide-0').classList.remove('hidden');
+            updateDots();
+        }
+
+        // Renderizar botões do menu
+        function renderMenu() {
+            const container = mainMenu.querySelector('.grid');
+            container.innerHTML = ''; // Limpar
+
+            musicStyles.forEach(style => {
+                const btn = document.createElement('button');
+                btn.className = `
+                    group relative overflow-hidden rounded-2xl aspect-square
+                    flex flex-col items-center justify-center p-4
+                    glass-card hover:scale-105 hover:shadow-2xl hover:shadow-${style.color.split('-')[1]}-500/20
+                `;
+                btn.onclick = () => openModal(style);
+
+                btn.innerHTML = `
+                    <div class="absolute inset-0 bg-gradient-to-br ${style.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    <i class="fas ${style.icon} text-4xl mb-3 text-gray-200 group-hover:text-white transition-colors"></i>
+                    <span class="text-lg font-bold text-white text-center z-10">${style.title}</span>
+                    <span class="text-xs text-gray-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">Ver detalhes</span>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        // --- MODAL LÓGICA ---
+        function openModal(style) {
+            // Preencher dados
+            document.getElementById('modal-title').innerText = style.title;
+            document.getElementById('modal-desc').innerText = style.desc;
+            document.getElementById('modal-origin').innerText = style.origin;
+            document.getElementById('modal-artists').innerText = style.artists;
+            document.getElementById('modal-fact').innerText = `"${style.fact}"`;
+            document.getElementById('modal-icon').innerHTML = `<i class="fas ${style.icon}"></i>`;
+            
+            const header = document.getElementById('modal-header');
+            header.className = `h-32 md:h-40 bg-gradient-to-r ${style.color} p-6 flex items-end justify-between relative`;
+
+            // Mostrar modal
+            modal.classList.remove('hidden');
+            // Timeout pequeno para permitir a transição de opacidade
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContentBox.classList.remove('scale-95');
+                modalContentBox.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContentBox.classList.remove('scale-100');
+            modalContentBox.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Esperar transição terminar
+        }
+
+        // Fechar modal ao clicar fora
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Inicializar
+        updateDots();
+    </script>
+</body>
+</html>
+
+  
