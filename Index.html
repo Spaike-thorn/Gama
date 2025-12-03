@@ -16,7 +16,6 @@
             overflow-x: hidden;
         }
         
-        /* Background Animation */
         .bg-animated {
             background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #111827);
             background-size: 400% 400%;
@@ -35,7 +34,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Transitions */
         .fade-in {
             animation: fadeIn 0.8s ease-in-out forwards;
         }
@@ -54,7 +52,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -73,7 +70,6 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* Custom Scrollbar for modals */
         .custom-scroll::-webkit-scrollbar {
             width: 8px;
         }
@@ -88,16 +84,12 @@
 </head>
 <body class="h-screen flex flex-col">
 
-    <!-- Background -->
     <div class="bg-animated"></div>
 
-    <!-- Main Container -->
     <main class="flex-grow flex flex-col items-center justify-center w-full px-4 relative">
         
-        <!-- INTRO SLIDES SECTION -->
         <div id="intro-section" class="w-full max-w-4xl mx-auto text-center relative min-h-[60vh] flex flex-col justify-center items-center">
             
-            <!-- Slide 1: Title -->
             <div id="slide-0" class="slide-content w-full">
                 <div class="mb-6">
                     <i class="fas fa-music text-6xl md:text-8xl text-purple-400 animate-bounce"></i>
@@ -115,10 +107,8 @@
                 </button>
             </div>
 
-            <!-- Slide 2: Justificativa & Ementa -->
             <div id="slide-1" class="slide-content w-full hidden text-left">
                 <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Justificativa -->
                     <div class="glass p-8 rounded-2xl slide-up">
                         <div class="flex items-center mb-4">
                             <div class="p-3 bg-emerald-500/20 rounded-lg mr-4">
@@ -131,7 +121,6 @@
                         </p>
                     </div>
 
-                    <!-- Ementa -->
                     <div class="glass p-8 rounded-2xl slide-up" style="animation-delay: 0.2s">
                         <div class="flex items-center mb-4">
                             <div class="p-3 bg-amber-500/20 rounded-lg mr-4">
@@ -151,12 +140,10 @@
                 </div>
             </div>
 
-            <!-- Slide 3: Professoras -->
             <div id="slide-2" class="slide-content w-full hidden">
                 <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center slide-up">Professoras Responsáveis</h2>
                 <div class="flex flex-col md:flex-row justify-center gap-8 mb-12">
                     
-                    <!-- Card Lia -->
                     <div class="glass p-8 rounded-2xl w-full md:w-1/3 flex flex-col items-center slide-up hover:border-emerald-500/50 transition-colors">
                         <div class="w-24 h-24 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-full flex items-center justify-center mb-4 shadow-lg text-3xl font-bold text-white">
                             L
@@ -167,7 +154,6 @@
                         <p class="text-gray-400 text-sm mt-2 text-center">Explorando a vida através do som.</p>
                     </div>
 
-                    <!-- Card Priscila -->
                     <div class="glass p-8 rounded-2xl w-full md:w-1/3 flex flex-col items-center slide-up hover:border-amber-500/50 transition-colors" style="animation-delay: 0.2s">
                         <div class="w-24 h-24 bg-gradient-to-br from-amber-400 to-orange-600 rounded-full flex items-center justify-center mb-4 shadow-lg text-3xl font-bold text-white">
                             P
@@ -186,7 +172,6 @@
                 </div>
             </div>
 
-            <!-- Pagination Dots -->
             <div id="pagination-dots" class="absolute -bottom-16 left-0 right-0 flex justify-center space-x-3">
                 <button class="w-3 h-3 rounded-full bg-white transition-all duration-300 scale-125" id="dot-0"></button>
                 <button class="w-3 h-3 rounded-full bg-white/30 transition-all duration-300" id="dot-1"></button>
@@ -194,7 +179,6 @@
             </div>
         </div>
 
-        <!-- MENU PRINCIPAL (GRID DE ESTILOS) -->
         <div id="main-menu" class="hidden w-full max-w-6xl mx-auto py-8 slide-up">
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-5xl font-bold text-white mb-2">Universo Musical</h2>
@@ -202,7 +186,6 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                <!-- Cards serão gerados via JS -->
             </div>
             
             <div class="mt-8 text-center">
@@ -214,10 +197,9 @@
 
     </main>
 
-    <!-- MODAL DE DETALHES -->
     <div id="detail-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
         <div class="bg-[#1e293b] w-full max-w-2xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="modal-content-box">
-            <!-- Header com cor dinâmica -->
+    
             <div id="modal-header" class="h-32 md:h-40 bg-gradient-to-r from-purple-600 to-indigo-600 p-6 flex items-end justify-between relative">
                 <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 bg-black/20 hover:bg-black/40 rounded-full text-white flex items-center justify-center transition-colors">
                     <i class="fas fa-times"></i>
@@ -228,7 +210,6 @@
                 </div>
             </div>
             
-            <!-- Conteúdo -->
             <div class="p-6 md:p-8 max-h-[60vh] overflow-y-auto custom-scroll">
                 <div class="mb-6">
                     <p id="modal-desc" class="text-gray-300 text-lg leading-relaxed"></p>
@@ -255,7 +236,6 @@
     </div>
 
 <script>
-        // --- DADOS DOS ESTILOS MUSICAIS ---
         const musicStyles = [
             {
                 id: 'classica',
@@ -339,7 +319,6 @@
             }
         ];
 
-        // --- ESTADO E LÓGICA ---
         let currentSlide = 0;
         const totalSlides = 3;
 
@@ -363,27 +342,23 @@
         }
 
         function nextSlide() {
-            // Ocultar slide atual
             document.getElementById(`slide-${currentSlide}`).classList.add('hidden');
-            
-            // Incrementar e mostrar próximo
+
             currentSlide++;
             
             if (currentSlide < totalSlides) {
                 const nextEl = document.getElementById(`slide-${currentSlide}`);
                 nextEl.classList.remove('hidden');
                 
-                // Reiniciar animações para o novo slide
                 const animatedElements = nextEl.querySelectorAll('.slide-up');
                 animatedElements.forEach(el => {
                     el.style.animation = 'none';
-                    el.offsetHeight; /* trigger reflow */
+                    el.offsetHeight;
                     el.style.animation = null; 
                 });
 
                 updateDots();
             } else {
-                // Se passou do último slide, vai pro menu principal
                 goToMainMenu();
             }
         }
@@ -399,7 +374,6 @@
             mainMenu.classList.add('hidden');
             introSection.classList.remove('hidden');
             
-            // Resetar slides
             for(let i=0; i<totalSlides; i++) {
                 document.getElementById(`slide-${i}`).classList.add('hidden');
             }
@@ -407,10 +381,9 @@
             updateDots();
         }
 
-        // Renderizar botões do menu
         function renderMenu() {
             const container = mainMenu.querySelector('.grid');
-            container.innerHTML = ''; // Limpar
+            container.innerHTML = ''; 
 
             musicStyles.forEach(style => {
                 const btn = document.createElement('button');
@@ -431,9 +404,8 @@
             });
         }
 
-        // --- MODAL LÓGICA ---
+        
         function openModal(style) {
-            // Preencher dados
             document.getElementById('modal-title').innerText = style.title;
             document.getElementById('modal-desc').innerText = style.desc;
             document.getElementById('modal-origin').innerText = style.origin;
@@ -444,9 +416,7 @@
             const header = document.getElementById('modal-header');
             header.className = `h-32 md:h-40 bg-gradient-to-r ${style.color} p-6 flex items-end justify-between relative`;
 
-            // Mostrar modal
             modal.classList.remove('hidden');
-            // Timeout pequeno para permitir a transição de opacidade
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalContentBox.classList.remove('scale-95');
@@ -461,15 +431,13 @@
             
             setTimeout(() => {
                 modal.classList.add('hidden');
-            }, 300); // Esperar transição terminar
+            }, 300);
         }
 
-        // Fechar modal ao clicar fora
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
 
-        // Inicializar
         updateDots();
     </script>
 </body>
