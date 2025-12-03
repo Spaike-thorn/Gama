@@ -16,7 +16,6 @@
             overflow-x: hidden;
         }
         
-        /* Background Animation */
         .bg-animated {
             background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #111827);
             background-size: 400% 400%;
@@ -35,7 +34,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -43,7 +41,6 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Transitions */
         .slide-up {
             animation: slideUp 0.6s ease-out forwards;
         }
@@ -51,11 +48,10 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        /* Classe para o container do vídeo (mantém proporção 16:9) */
+
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
         }
@@ -70,15 +66,11 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- Background -->
     <div class="bg-animated"></div>
 
-    <!-- Main Container -->
     <main class="flex-grow w-full max-w-5xl mx-auto px-4 py-12 md:py-16">
         
-        <!-- Header -->
         <div class="relative text-center mb-10 md:mb-12 slide-up">
-            <!-- Botão Voltar - APONTA PARA O INDEX PRINCIPAL -->
             <a href="index.html" class="absolute left-0 top-1 text-sm text-gray-400 hover:text-white transition-colors">
                 <i class="fas fa-chevron-left mr-2"></i> Voltar ao Menu
             </a>
@@ -87,10 +79,8 @@
             <p class="text-lg text-gray-400">Um resumo da nossa jornada na eletiva.</p>
         </div>
 
-        <!-- Tab Interface -->
         <div class="w-full slide-up" style="animation-delay: 0.2s">
             
-            <!-- Tab Buttons -->
             <div class="flex border-b border-white/10 mb-6 overflow-x-auto whitespace-nowrap">
                 <button id="tab-button-0" onclick="showTab(0)" class="tab-button text-sm md:text-base font-semibold px-4 py-3 text-white border-b-2 border-purple-400 transition-colors">
                     <i class="fas fa-lightbulb mr-2 opacity-80"></i> O que aprendemos?
@@ -99,86 +89,69 @@
                     <i class="fas fa-palette mr-2 opacity-80"></i> Trabalho da Eletiva
                 </button>
                 <button id="tab-button-2" onclick="showTab(2)" class="tab-button text-sm md:text-base font-semibold px-4 py-3 text-gray-400 border-b-2 border-transparent hover:text-white transition-colors">
-                    <i class="fas fa-camera-retro mr-2 opacity-80"></i> Ensaios
+                    <i class="fas fa-camera-retro mr-2 opacity-80"></i> Fotos
                 </button>
             </div>
 
-            <!-- Tab Content Panels -->
             <div class="w-full">
                 
-                <!-- Painel 1: O que aprendemos? (DEIXADO EM BRANCO PARA VOCÊ PREENCHER) -->
                 <div id="tab-content-0" class="tab-content glass p-6 md:p-8 rounded-2xl">
                     <h2 class="text-2xl font-bold mb-4">O que aprendemos?</h2>
                     
-                    <!-- INÍCIO DA ÁREA PARA O SEU TEXTO -->
                     <p class="text-gray-300 leading-relaxed mb-4">
-                        [INSIRA AQUI O TEXTO EXPLICANDO O QUE OS ALUNOS APRENDERAM, INCLUINDO AS CONEXÕES COM BIOLOGIA E GEOGRAFIA.]
+                        texto
                     </p>
                     <ul class="list-disc list-inside mt-4 text-gray-300 space-y-2">
-                        <!-- VOCÊ PODE INSERIR PONTOS DE LISTA AQUI, SE PREFERIR -->
                     </ul>
-                    <!-- FIM DA ÁREA DO SEU TEXTO -->
                     
                 </div>
 
-                <!-- Painel 2: Trabalho da Eletiva (ÁREA DO VÍDEO) -->
                 <div id="tab-content-1" class="tab-content glass p-6 md:p-8 rounded-2xl hidden">
                     <h2 class="text-2xl font-bold mb-4">Trabalho da Eletiva</h2>
                     <p class="text-gray-300 leading-relaxed mb-4">
-                        Assista ao resultado final do nosso projeto de conexão entre música, ciência e geografia.
+                        Um video das apresentações feitas durante a Eletiva
                     </p>
                     
-                    <!-- ATENÇÃO: AREA QUE VOCÊ VAI SUBSTITUIR O LINK DO VÍDEO -->
                     <div class="video-container rounded-xl overflow-hidden border border-white/10">
-                        <!-- 1. TROQUE O TEXTO ABAIXO PELA URL DE INCORPORAÇÃO (embed) DO YOUTUBE -->
                         <iframe src="URL_DE_INCORPORACAO_DO_YOUTUBE_AQUI" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen></iframe>
                     </div>
-                    <!-- FIM DA AREA DO VÍDEO -->
                     
                     <p class="text-sm text-gray-400 mt-2 text-center"><i>Insira aqui o título ou descrição curta do vídeo.</i></p>
                 </div>
 
-                <!-- Painel 3: Ensaios (ÁREA DAS FOTOS POR URL) -->
                 <div id="tab-content-2" class="tab-content glass p-6 md:p-8 rounded-2xl hidden">
                     <h2 class="text-2xl font-bold mb-4">Ensaios (Bastidores)</h2>
                     <p class="text-gray-300 leading-relaxed mb-6">
                         Confira alguns momentos e fotos dos alunos durante o processo de criação e ensaios do projeto.
                     </p>
                     
-                    <!-- ATENÇÃO: AREA QUE VOCÊ VAI SUBSTITUIR AS FOTOS POR URL -->
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         
-                        <!-- FOTO 1 - Troque o texto "URL_DA_SUA_FOTO_AQUI" pelo link da sua primeira foto -->
-                        <img src="URL_DA_SUA_FOTO_AQUI" 
+                        <img src=https://web.facebook.com/facebook/?locale=pt_BR&_rdc=1&_rdr#" 
                              alt="Foto dos Bastidores 1" 
                              class="w-full h-full object-cover rounded-lg aspect-square border-2 border-white/10 hover:border-purple-400 transition-colors cursor-pointer" 
                              onerror="this.onerror=null; this.src='https://placehold.co/300x300/374151/ffffff?text=FOTO+1';">
                         
-                        <!-- FOTO 2 - Troque o texto "URL_DA_SUA_FOTO_AQUI" pelo link da sua segunda foto -->
                         <img src="URL_DA_SUA_FOTO_AQUI" 
                              alt="Foto dos Bastidores 2" 
                              class="w-full h-full object-cover rounded-lg aspect-square border-2 border-white/10 hover:border-purple-400 transition-colors cursor-pointer" 
                              onerror="this.onerror=null; this.src='https://placehold.co/300x300/374151/ffffff?text=FOTO+2';">
                         
-                        <!-- FOTO 3 - Troque o texto "URL_DA_SUA_FOTO_AQUI" pelo link da sua terceira foto -->
                         <img src="URL_DA_SUA_FOTO_AQUI" 
                              alt="Foto dos Bastidores 3" 
                              class="w-full h-full object-cover rounded-lg aspect-square border-2 border-white/10 hover:border-purple-400 transition-colors cursor-pointer" 
                              onerror="this.onerror=null; this.src='https://placehold.co/300x300/374151/ffffff?text=FOTO+3';">
                         
-                        <!-- FOTO 4 - Troque o texto "URL_DA_SUA_FOTO_AQUI" pelo link da sua quarta foto -->
                         <img src="URL_DA_SUA_FOTO_AQUI" 
                              alt="Foto dos Bastidores 4" 
                              class="w-full h-full object-cover rounded-lg aspect-square border-2 border-white/10 hover:border-purple-400 transition-colors cursor-pointer" 
                              onerror="this.onerror=null; this.src='https://placehold.co/300x300/374151/ffffff?text=FOTO+4';">
                         
-                        <!-- VOCÊ PODE ADICIONAR MAIS FOTOS REPETINDO O CÓDIGO <img> ACIMA E MUDANDO A URL -->
                         
                     </div>
-                    <!-- FIM DA AREA DAS FOTOS -->
                 </div>
 
             </div>
@@ -189,28 +162,22 @@
         const totalTabs = 3;
 
         function showTab(tabIndex) {
-            // Esconder todos os conteúdos
             for (let i = 0; i < totalTabs; i++) {
                 document.getElementById(`tab-content-${i}`).classList.add('hidden');
             }
             
-            // Desativar todos os botões
             const buttons = document.querySelectorAll('.tab-button');
             buttons.forEach(btn => {
                 btn.classList.remove('text-white', 'border-purple-400');
                 btn.classList.add('text-gray-400', 'border-transparent');
             });
-
-            // Mostrar o conteúdo selecionado
             document.getElementById(`tab-content-${tabIndex}`).classList.remove('hidden');
 
-            // Ativar o botão selecionado
             const activeButton = document.getElementById(`tab-button-${tabIndex}`);
             activeButton.classList.add('text-white', 'border-purple-400');
             activeButton.classList.remove('text-gray-400', 'border-transparent');
         }
         
-        // Inicializa mostrando a primeira aba
         document.addEventListener('DOMContentLoaded', () => {
             showTab(0);
         });
